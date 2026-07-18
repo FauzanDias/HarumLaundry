@@ -11,7 +11,7 @@
 
     <ul>
 
-        <li><a href="{{ url('/home') }}">Home</a></li>
+        <li><a href="{{ url('/home') }}" class="active">Home</a></li>
 
         <li><a href="{{ url('/profil') }}">Profil Laundry</a></li>
 
@@ -19,7 +19,7 @@
 
         <li><a href="{{ url('/cabang') }}" class="active">Lokasi Cabang</a></li>
 
-        {{-- <li><a href="#">Hubungi Kami</a></li> --}}
+        <li><a href="{{ url('/hubungi') }}">Hubungi Kami</a></li>
 
         <li><a href="{{ url('/cek-cucian') }}">Cek Cucian</a></li>
 
@@ -71,7 +71,7 @@
         <div class="maps-placeholder">
 
             <iframe
-                src="https://www.google.com/maps?q=Jl.+Mulawarman+Perumnas+No.+B1,+Karang+Anyar,+Tarakan+Barat,+Kalimantan+Utara&output=embed"
+                src="https://www.google.com/maps?q=Harum+Laundry,+ruko+permata+indah,+Jl.+Mulawarman+perumnas+no.+B1,+Karang+Anyar,+Kota+Tarakan&output=embed"
                 width="100%"
                 height="100%"
                 style="border:0;border-radius:12px;"
@@ -93,7 +93,7 @@
         <div class="maps-placeholder">
 
             <iframe
-                src="https://www.google.com/maps?q=Jl.+Aki+Balak,+Juata+Kerikil,+Tarakan+Utara,+Kalimantan+Utara&output=embed"
+                src="https://www.google.com/maps?q=Harum+laundry+(+Outlet+2+),+Jl.+Aki+Balak,+Juata+Kerikil,+Kec.+Tarakan+Utara,+Kota+Tarakan,+Kalimantan+Utara+77116&output=embed"
                 width="100%"
                 height="100%"
                 style="border:0;border-radius:12px;"
@@ -190,7 +190,7 @@
             <div class="maps-placeholder">
 
     <iframe
-        src="https://www.google.com/maps?q=Jl.+P.+Nias,+Skip,+Tarakan+Tengah,+Kalimantan+Utara&output=embed"
+        src="https://www.google.com/maps?q=Harum+Laundry+3,+Jl.+P.+Nias,+kelurahan+skip,+Kec.+Tarakan+Tengah,+Kota+Tarakan,+Kalimantan+Utara&output=embed"
         width="100%"
         height="100%"
         style="border:0;border-radius:12px;"

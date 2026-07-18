@@ -11,7 +11,7 @@
 
     <ul>
 
-        <li><a href="{{ url('/home') }}">Home</a></li>
+        <li><a href="{{ url('/home') }}" class="active">Home</a></li>
 
         <li><a href="{{ url('/profil') }}">Profil Laundry</a></li>
 
@@ -19,7 +19,7 @@
 
         <li><a href="{{ url('/cabang') }}">Lokasi Cabang</a></li>
 
-        {{-- <li><a href="#">Hubungi Kami</a></li> --}}
+        <li><a href="{{ url('/hubungi') }}">Hubungi Kami</a></li>
 
         <li><a href="{{ url('/cek-cucian') }}">Cek Cucian</a></li>
 
