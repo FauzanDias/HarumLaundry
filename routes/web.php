@@ -1,18 +1,13 @@
 <?php
 
-use App\Http\Controllers\PesananController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CekCucianController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-*/
-
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::view('/', 'home');
+Route::view('/home', 'home');
+Route::view('/profil', 'profil');
+Route::view('/cabang', 'cabang');
+Route::view('/layanan', 'layanan');
+Route::get('/cek-cucian', [CekCucianController::class,'index']);
+Route::post('/cek-cucian', [CekCucianController::class,'cek'])->name('cek.cucian');
