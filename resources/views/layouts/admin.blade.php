@@ -121,14 +121,36 @@
 
   <!-- Content Wrapper -->
   <div class="page-wrapper">
+    
+    <!-- Page Header (Sudah Ditambahkan Slot Page Actions & Breadcrumb) -->
     <div class="page-header d-print-none">
       <div class="container-xl">
-        <h2 class="page-title text-heading">
-          @yield('page-title', 'Dashboard')
-        </h2>
+        <div class="row g-2 align-items-center">
+          <div class="col">
+            @hasSection('breadcrumb')
+            <div class="mb-1">
+              <ol class="breadcrumb breadcrumb-arrows" aria-label="breadcrumbs">
+                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+                @yield('breadcrumb')
+              </ol>
+            </div>
+            @endif
+            <h2 class="page-title text-heading">
+              @yield('page-title', 'Dashboard')
+            </h2>
+          </div>
+          
+          <!-- Menampilkan Tombol "+ Order Baru" dari Halaman Child -->
+          <div class="col-auto ms-auto d-print-none">
+            <div class="btn-list">
+              @yield('page-actions')
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
+    <!-- Page Body -->
     <div class="page-body">
       <div class="container-xl">
         @if(session('success'))

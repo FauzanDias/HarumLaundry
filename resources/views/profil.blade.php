@@ -86,7 +86,7 @@
             <div class="maps-frame">
 
                 <iframe
-                    src="https://www.google.com/maps?q=Jl.+Mulawarman,+Tarakan+Barat&output=embed"
+                    src="https://www.google.com/maps?q=Harum+Laundry,+ruko+permata+indah,+Jl.+Mulawarman+perumnas+no.+B1,+Karang+Anyar,+Kota+Tarakan&output=embed"
                     width="100%"
                     height="280"
                     style="border:0;"
