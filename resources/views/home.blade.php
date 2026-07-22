@@ -27,7 +27,6 @@
 
 </nav>
 
-
 <section class="hero">
 
     <div class="hero-image">
@@ -60,6 +59,16 @@
             Hubungi Kami
         </a>
         </div>
+    </div>
+</section>
+
+<section class="hero-slider" style="margin-top: 20px;">
+    <div class="slider-container" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding: 0 20px;">
+        @forelse($sliders ?? [] as $slider)
+            <img src="{{ Storage::url($slider->image_path) }}" alt="Slider Laundry" style="scroll-snap-align: start; flex: 0 0 auto; width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        @empty
+            <img src="{{ asset('images/unavailable.jpg') }}" alt="Laundry" style="scroll-snap-align: start; flex: 0 0 auto; width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px;">
+        @endforelse
     </div>
 </section>
 

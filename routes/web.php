@@ -9,12 +9,14 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SliderController;
 
 // ============================================================
 // PUBLIC ROUTES (Dapat diakses pengunjung tanpa login)
 // ============================================================
-Route::view('/', 'home')->name('home');
-Route::view('/home', 'home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index']);
 Route::view('/profil', 'profil');
 Route::view('/cabang', 'cabang');
 Route::view('/layanan', 'layanan');
@@ -43,6 +45,9 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 
     // Layanan
     Route::resource('layanan', LayananController::class)->except(['show']);
+
+    // Sliders
+    Route::resource('sliders', SliderController::class)->only(['index', 'store', 'destroy']);
 
     // Orders
     Route::resource('orders', OrderController::class)->only(['index', 'create', 'store', 'show', 'destroy']);

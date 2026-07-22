@@ -66,6 +66,13 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('sliders.*') ? 'active' : '' }}" href="{{ route('sliders.index') }}">
+              <span class="nav-link-icon"><i class="ti ti-photo fs-2"></i></span>
+              <span class="nav-link-title">Kelola Slider</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('laporan.*') ? 'active' : '' }}" href="{{ route('laporan.index') }}">
               <span class="nav-link-icon"><i class="ti ti-chart-bar fs-2"></i></span>
               <span class="nav-link-title">Laporan</span>
