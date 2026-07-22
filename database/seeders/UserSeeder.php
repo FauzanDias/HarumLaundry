@@ -10,16 +10,16 @@ class UserSeeder extends Seeder
     {
         User::create([
             'role_id'   => 1,
-            'name'      => 'Azi Saputra',
-            'email'     => 'admin@laundryku.com',
+            'name'      => 'Fauzan Dias Khairi',
+            'email'     => 'admin@harumlaundry.com',
             'password'  => Hash::make('Admin123'),
             'is_active' => true,
         ]);
 
         User::create([
             'role_id'   => 2,
-            'name'      => 'Sandika Galih',
-            'email'     => 'kasir@laundryku.com',
+            'name'      => 'kasir1',
+            'email'     => 'kasir@harumlaundry.com',
             'password'  => Hash::make('Kasir123'),
             'is_active' => true,
         ]);

@@ -13,15 +13,17 @@ class CekCucianController extends Controller
 
     public function cek(Request $request)
     {
-        // Contoh data sementara
-        $data = (object)[
-            'invoice' => $request->invoice,
-            'nama' => 'Agil',
-            'status' => 'Sedang Dicuci',
-            'tanggal' => '06 Juli 2026',
-            'estimasi' => '07 Juli 2026'
-        ];
+        $keyword = $request->invoice;
 
-        return view('cek-cucian', compact('data'));
+        $orders = \App\Models\Order::with('pelanggan')
+            ->where('kode_order', 'like', "%{$keyword}%")
+            ->orWhereHas('pelanggan', function ($query) use ($keyword) {
+                $query->where('nama', 'like', "%{$keyword}%")
+                      ->orWhere('telepon', 'like', "%{$keyword}%");
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('cek-cucian', compact('orders', 'keyword'));
     }
 }

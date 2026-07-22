@@ -39,79 +39,77 @@
         <h2>Cek Status Cucianmu</h2>
 
         <form action="{{ route('cek.cucian') }}" method="POST">
-
             @csrf
-
             <input
                 type="text"
                 name="invoice"
-                placeholder="Masukkan No Invoice Disini"
+                placeholder="Masukkan No Invoice, Nama, atau No HP"
+                value="{{ $keyword ?? '' }}"
                 required>
 
             <button type="submit">
-
                 Lacak Status Cucian
-
             </button>
-
         </form>
-
     </div>
 
-
-    @isset($data)
-
+    @isset($orders)
     <div class="hasil">
-
-        <h3>Hasil Pencarian</h3>
-
-        <table>
-
-            <tr>
-                <th>No Invoice</th>
-                <td>{{ $data->invoice }}</td>
-            </tr>
-
-            <tr>
-                <th>Nama Pelanggan</th>
-                <td>{{ $data->nama }}</td>
-            </tr>
-
-            <tr>
-                <th>Status</th>
-
-                <td>
-
-                    <span class="status">
-
-                        {{ $data->status }}
-
-                    </span>
-
-                </td>
-
-            </tr>
-
-            <tr>
-
-                <th>Tanggal Masuk</th>
-
-                <td>{{ $data->tanggal }}</td>
-
-            </tr>
-
-            <tr>
-
-                <th>Estimasi Selesai</th>
-
-                <td>{{ $data->estimasi }}</td>
-
-            </tr>
-
-        </table>
-
+        <h3>Hasil Pencarian untuk "{{ $keyword }}"</h3>
+        
+        @if($orders->isEmpty())
+            <p style="text-align: center; color: #666; margin-top: 20px;">Pencarian tidak ditemukan. Silakan cek kembali nomor invoice, nama, atau no telepon Anda.</p>
+        @else
+            @foreach($orders as $order)
+                <div class="order-card">
+                    <table>
+                        <tr>
+                            <th>No Invoice</th>
+                            <td style="font-weight: bold; color: #2c3e50;">{{ $order->kode_order }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nama Pelanggan</th>
+                            <td>{{ $order->pelanggan->nama }}</td>
+                        </tr>
+                        <tr>
+                            <th>No Telepon</th>
+                            <td>{{ $order->pelanggan->telepon }}</td>
+                        </tr>
+                        <tr>
+                            <th>Status Cucian</th>
+                            <td>
+                                <span class="badge bg-{{ $order->status_badge }}-lt">
+                                    {{ $order->status_label }}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Status Pembayaran</th>
+                            <td>
+                                @if($order->status_bayar === 'lunas')
+                                    <span class="badge bg-success-lt">Lunas</span>
+                                @else
+                                    <span class="badge bg-danger-lt">Belum Bayar</span>
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Tanggal Masuk</th>
+                            <td>{{ $order->tgl_masuk->format('d F Y') }}</td>
+                        </tr>
+                        <tr>
+                            <th>Estimasi Selesai</th>
+                            <td>{{ $order->estimasi_selesai->format('d F Y') }}</td>
+                        </tr>
+                        <tr>
+                            <th>Total Tagihan</th>
+                            <td style="font-weight: bold;">{{ $order->total_formatted }}</td>
+                        </tr>
+                    </table>
+                </div>
+            @endforeach
+        @endif
     </div>
-
     @endisset
 
 </section>

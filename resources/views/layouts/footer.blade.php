@@ -20,7 +20,7 @@
 
         <!-- Menu -->
         <div class="footer-column">
-
+<!-- 
             <h3>Menu</h3>
 
             <ul>
@@ -35,7 +35,7 @@
 
                 <li><a href="/cek-cucian">Cek Cucian</a></li>
 
-            </ul>
+            </ul> -->
 
         </div>
 
@@ -44,11 +44,11 @@
 
             <h3>Kontak</h3>
 
-            <p>📍 Tarakan, Kalimantan Utara</p>
+            <p><a href="https://maps.app.goo.gl/y11atKzykayZkyyx5">📍 Tarakan, Kalimantan Utara</a></p>
 
-            <p>📞 0851-8375-4455</p>
+            <p><a href="https://wa.me/6285183754455">📞 0851-8375-4455</a></p>
 
-            <p>✉️ info@harumlaundry.com</p>
+            <p><a href="mailto:[EMAIL_ADDRESS]">✉️ [EMAIL_ADDRESS]</a></p>
 
             <p>🕒 08.00 - 22.00 WITA</p>
 
@@ -59,10 +59,10 @@
 
             <h3>Ikuti Kami</h3>
 
-            <a href="#">Facebook</a><br>
-            <a href="#">Instagram</a><br>
-            <a href="#">WhatsApp</a><br>
-            <a href="#">TikTok</a>
+            <!-- <a href="#">Facebook</a><br> -->
+            <a href="https://www.instagram.com/harumlaundry168/">Instagram</a><br>
+            <a href="https://wa.me/6285183754455">WhatsApp</a><br>
+            <!-- <a href="#">TikTok</a> -->
 
         </div>
 

@@ -56,7 +56,7 @@
 
             <div class="btn-group">
 
-                <a href="#" class="btn-primary">
+                <a href="https://wa.me/6285183754455" class="btn-primary">
                     Hubungi Outlet
                 </a>
 
@@ -127,7 +127,7 @@
 
             <div class="btn-group">
 
-                <a href="#" class="btn-primary">
+                <a href="https://wa.me/6285183754455" class="btn-primary">
                     Hubungi Outlet
                 </a>
 
@@ -173,7 +173,7 @@
 
             <div class="btn-group">
 
-                <a href="#" class="btn-primary">
+                <a href="https://wa.me/6285183754455" class="btn-primary">
                     Hubungi Outlet
                 </a>
 

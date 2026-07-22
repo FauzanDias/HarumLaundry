@@ -5,6 +5,7 @@
     "cloud": true,
     "skills": [
         "laravel-best-practices",
-        "tailwindcss-development"
+        "tailwindcss-development",
+        "deploying-laravel-cloud"
     ]
 }

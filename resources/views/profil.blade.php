@@ -39,7 +39,7 @@
 
         <div class="about-content">
 
-            <img src="{{ asset('images/logo.png') }}" class="logo-profil">
+            <!-- <img src="{{ asset('images/profile.png') }}" class="logo-profil"> -->
 
             <h2>#1 Laundry di kotamu</h2>
 
@@ -189,11 +189,11 @@
 
         <div class="button-group">
 
-            <a href="#" class="btn">
+            <a href="{{ url('/cabang') }}" class="btn">
                 Hubungi Outlet
             </a>
 
-            <a href="#" class="btn btn-outline">
+            <a href="{{ url('/layanan') }}" class="btn btn-outline">
                 Menu Layanan
             </a>
 

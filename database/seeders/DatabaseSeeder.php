@@ -20,16 +20,16 @@ class DatabaseSeeder extends Seeder
         // Users
         User::create([
             'role_id'   => $admin->id,
-            'name'      => 'Azi Saputra',
-            'email'     => 'admin@laundryku.com',
+            'name'      => 'Fauzan Dias Khairi',
+            'email'     => 'admin@harumlaundry.com',
             'password'  => Hash::make('Admin123'),
             'is_active' => true,
         ]);
 
         User::create([
             'role_id'   => $kasir->id,
-            'name'      => 'Sandika Galih',
-            'email'     => 'kasir@laundryku.com',
+            'name'      => 'kasir1',
+            'email'     => 'kasir@harumlaundry.com',
             'password'  => Hash::make('Kasir123'),
             'is_active' => true,
         ]);
@@ -51,11 +51,7 @@ class DatabaseSeeder extends Seeder
 
         // Sample pelanggan
         $pelanggan = [
-            ['nama' => 'Budi Santoso',   'telepon' => '081234567890', 'alamat' => 'Jl. Mawar No. 10, Bandung'],
-            ['nama' => 'Siti Rahayu',    'telepon' => '085678901234', 'alamat' => 'Jl. Melati No. 5, Bandung'],
-            ['nama' => 'Ahmad Fauzi',    'telepon' => '087890123456', 'alamat' => 'Jl. Anggrek No. 3, Cimahi'],
-            ['nama' => 'Dewi Lestari',   'telepon' => '082345678901', 'alamat' => 'Jl. Dahlia No. 8, Bandung'],
-            ['nama' => 'Reza Pradana',   'telepon' => '089012345678', 'alamat' => 'Jl. Kenanga No. 12, Bandung'],
+            ['nama' => 'Fauzan Dias',   'telepon' => '085348706418', 'alamat' => 'Jl. Permadi, Sorosutan. Kota Yogyakarta'],
         ];
 
         foreach ($pelanggan as $p) {

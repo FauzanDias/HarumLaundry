@@ -28,9 +28,7 @@
 
       <h1 class="navbar-brand navbar-brand-autodark m-0">
         <a href="{{ route('dashboard') }}" class="d-flex align-items-center gap-2 text-decoration-none">
-          <div class="avatar avatar-sm bg-primary text-white" style="border-radius: 8px;">
-            <i class="ti ti-wash fs-3"></i>
-          </div>
+          <img src="{{ asset('images/logo.png') }}" alt="Logo" height="36" style="border-radius: 6px;">
           <span class="fw-bold fs-3 text-white tracking-tight">HarumLaundry</span>
         </a>
       </h1>

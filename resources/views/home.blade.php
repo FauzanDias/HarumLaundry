@@ -52,9 +52,87 @@
             Cuci Bersih hingga seperti baru ⭐
         </p>
 
-        <a href="#" class="btn">
+        <div style="display: flex; gap: 20px;">
+        <a href="{{ url('/hubungi') }}" class="btn">
             Laundry Sekarang
+        </a>    
+        <a href="https://wa.me/6285183754455" class="btn">
+            Hubungi Kami
         </a>
+        </div>
     </div>
 </section>
+
+<section class="hero">
+        <img src="{{ asset('images/alasan.jpg') }}" alt="Laundry">
+</section>
+
+<section class="layanan-page">
+
+    <div class="layanan-header">
+
+        <h1>BUKA SETIAP HARI</h1>
+
+        <div class="subtitle">
+            Mulai Pukul 08.00 - 22.00 WITA
+        </div>
+
+        <h3>
+            Cuci Satuan & Laundry Kiloan
+        </h3>
+
+        <p>
+            Terdapat 3 Cabang diseluruh Kota Tarakan
+        </p>
+
+    </div>
+
+<section class="unggulan">
+
+        <h2>Jenis Layanan</h2>
+
+        <div class="card-container">
+
+            <div class="card">
+
+                <div class="icon">👕</div>
+
+                <h3>Cuci Kiloan</h3>
+
+                <p>
+                    Harga ekonomis dan kualitas terbaik. Cocok untuk pakaian sehari-hari
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icon">🧸</div>
+
+                <h3>Cuci Satuan</h3>
+
+                <p>
+                    Cocok untuk barang seperti Bed Cover, Selimut, Gorden, dan lainnya.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icon">⚡</div>
+
+                <h3>Paket Express</h3>
+
+                <p>
+                    Proses cepat dan hasil terbaik. Cuci hari ini, besok sudah seperti baru.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
 @endsection
