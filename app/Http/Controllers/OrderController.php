@@ -128,4 +128,14 @@ class OrderController extends Controller
         $pdf = Pdf::loadView('orders.nota', compact('order'))->setPaper([0, 0, 226.77, 500], 'portrait');
         return $pdf->stream("nota-{$order->kode_order}.pdf");
     }
+
+    public function destroy(Order $order)
+    {
+        if ($order->status !== 'diambil') {
+            $order->delete();
+            return back()->with('success', 'Order berhasil dihapus.');
+        }
+
+        return back()->with('error', 'Order yang sudah diambil tidak dapat dihapus.');
+    }
 }

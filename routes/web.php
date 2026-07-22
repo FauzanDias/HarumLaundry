@@ -45,7 +45,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('layanan', LayananController::class)->except(['show']);
 
     // Orders
-    Route::resource('orders', OrderController::class)->only(['index', 'create', 'store', 'show']);
+    Route::resource('orders', OrderController::class)->only(['index', 'create', 'store', 'show', 'destroy']);
     Route::patch('orders/{order}/status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
     Route::patch('orders/{order}/bayar',  [OrderController::class, 'bayar'])->name('orders.bayar');
     Route::get('orders/{order}/nota',     [OrderController::class, 'nota'])->name('orders.nota');

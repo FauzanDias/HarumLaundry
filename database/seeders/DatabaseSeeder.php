@@ -35,15 +35,23 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Layanan
-        $layanan = [
-            ['nama' => 'Cuci + Setrika',   'satuan' => 'kg',  'harga' => 7000,  'deskripsi' => 'Cuci bersih dan disetrika rapi'],
-            ['nama' => 'Cuci Saja',        'satuan' => 'kg',  'harga' => 5000,  'deskripsi' => 'Hanya dicuci tanpa setrika'],
-            ['nama' => 'Setrika Saja',     'satuan' => 'kg',  'harga' => 4000,  'deskripsi' => 'Hanya disetrika tanpa cuci'],
-            ['nama' => 'Dry Cleaning',     'satuan' => 'pcs', 'harga' => 25000, 'deskripsi' => 'Layanan dry cleaning untuk baju sensitif'],
-            ['nama' => 'Cuci Sepatu',      'satuan' => 'pcs', 'harga' => 30000, 'deskripsi' => 'Cuci bersih sepatu'],
-            ['nama' => 'Cuci Karpet',      'satuan' => 'kg',  'harga' => 10000, 'deskripsi' => 'Cuci karpet berbagai ukuran'],
-            ['nama' => 'Express (1 Hari)', 'satuan' => 'kg',  'harga' => 12000, 'deskripsi' => 'Layanan express selesai 1 hari'],
+        // Layanan Kiloan
+        $layananKiloan = [
+            ['nama' => 'Cuci Lipat', 'satuan' => 'kg', 'waktu_cuci' => '3 Hari', 'harga' => 7000, 'deskripsi' => 'Layanan Kiloan - Harga Dasar (3 Hari)'],
+            ['nama' => 'Cuci Lipat', 'satuan' => 'kg', 'waktu_cuci' => '2 Hari', 'harga' => 8000, 'deskripsi' => 'Layanan Kiloan - Harga Dasar (2 Hari)'],
+            ['nama' => 'Cuci Lipat', 'satuan' => 'kg', 'waktu_cuci' => '1 Hari', 'harga' => 10000, 'deskripsi' => 'Layanan Kiloan - Harga Dasar (1 Hari)'],
+            ['nama' => 'Cuci Lipat', 'satuan' => 'kg', 'waktu_cuci' => '6 jam', 'harga' => 20000, 'deskripsi' => 'Layanan Kiloan - Harga Dasar (6 Jam)'],
+            ['nama' => 'Cuci Lipat', 'satuan' => 'kg', 'waktu_cuci' => '3 jam', 'harga' => 30000, 'deskripsi' => 'Layanan Kiloan - Harga Dasar (3 Jam)'],
         ];
+
+        // Layanan Satuan
+        $layananSatuan = [
+            ['nama' => 'Bed Cover No. 1', 'satuan' => 'pcs', 'harga' => 40000, 'deskripsi' => 'Layanan Satuan - Harga Dasar (3 Hari)'],
+            ['nama' => 'Bed Cover No. 2', 'satuan' => 'pcs', 'harga' => 35000, 'deskripsi' => 'Layanan Satuan - Harga Dasar (3 Hari)'],
+            ['nama' => 'Bed Cover No. 3', 'satuan' => 'pcs', 'harga' => 30000, 'deskripsi' => 'Layanan Satuan - Harga Dasar (3 Hari)'],
+        ];
+
+        $layanan = array_merge($layananKiloan, $layananSatuan);
 
         foreach ($layanan as $l) {
             Layanan::create(array_merge($l, ['is_active' => true]));

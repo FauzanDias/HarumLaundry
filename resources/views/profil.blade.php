@@ -137,10 +137,9 @@
                 <h3>Cabang yang merata</h3>
 
                 <p>
-
-                    Terdapat beberapa cabang di Kota Tarakan
-                    sehingga pelanggan lebih mudah menjangkau outlet.
-
+                    Harum Laundry kini telah memiliki 3 cabang yang terbagi pada 3 kecamatan Kota Tarakan. 
+                    Yaitu, Tarakan Utara, Tarakan Barat, dan Tarakan Tengah.
+                    Kini akses untuk mencuci pakaian sudah sangat mudah dengan menggunakan jasa Harum Laundry.
                 </p>
 
             </div>
@@ -152,10 +151,9 @@
                 <h3>Gratis antar jemput</h3>
 
                 <p>
-
-                    Gratis pickup dan delivery
-                    untuk area tertentu.
-
+                    Kami menyediakan layanan gratis untuk pengambilan dan pengiriman cucian kepada pelanggan kami. 
+                    Dengan adanya 3 cabang yang kami miliki dapat mempermudah pelanggan untuk melakukan pengiriman 
+                    serta pengambilan pada cabang terdekat
                 </p>
 
             </div>
@@ -167,10 +165,8 @@
                 <h3>3 Jam Siap Pakai</h3>
 
                 <p>
-
-                    Laundry Express selesai hanya
-                    dalam waktu sekitar 3 jam.
-
+                    Cukup 3 jam saja hingga pakaianmu bersih kembali, layanan express ini sudah termasuk cuci kering-setrika-pewangi.
+                    Mulai dari 30.000/kg dengan minimal cucian 3kg.
                 </p>
 
             </div>

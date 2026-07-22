@@ -8,7 +8,8 @@ return new class extends Migration {
         Schema::create('layanan', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('satuan')->default('kg'); 
+            $table->string('satuan')->default('satuan'); 
+            $table->string('waktu_cuci')->default('waktu'); 
             $table->decimal('harga', 10, 2);
             $table->text('deskripsi')->nullable();
             $table->boolean('is_active')->default(true);

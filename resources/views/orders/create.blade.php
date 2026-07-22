@@ -85,7 +85,7 @@
           <table class="table table-vcenter card-table" id="itemTable">
             <thead>
               <tr>
-                <th>Layanan</th>
+                <th style="min-width: 250px;">Detail Layanan</th>
                 <th style="width: 140px;">Jumlah / Berat</th>
                 <th style="width: 130px;" class="text-end">Harga Satuan</th>
                 <th style="width: 130px;" class="text-end">Subtotal</th>
@@ -95,10 +95,24 @@
             <tbody id="itemRows">
               <tr class="item-row align-middle">
                 <td>
-                  <select name="items[0][layanan_id]" class="form-select layanan-select" required>
+                  <div class="row g-2 mb-2">
+                    <div class="col-6">
+                      <select class="form-select jenis-select form-select-sm" required>
+                        <option value="">-- Kategori --</option>
+                        <option value="kiloan">Kiloan</option>
+                        <option value="satuan">Satuan</option>
+                      </select>
+                    </div>
+                    <div class="col-6">
+                      <select name="items[0][waktu_cuci]" class="form-select waktu-select form-select-sm" required disabled>
+                        <option value="">-- Waktu --</option>
+                      </select>
+                    </div>
+                  </div>
+                  <select name="items[0][layanan_id]" class="form-select layanan-select" required disabled>
                     <option value="">-- Pilih Layanan --</option>
                     @foreach($layanan as $l)
-                    <option value="{{ $l->id }}" data-harga="{{ $l->harga }}" data-satuan="{{ $l->satuan }}">
+                    <option value="{{ $l->id }}" data-harga="{{ $l->harga }}" data-satuan="{{ $l->satuan }}" data-jenis="{{ $l->satuan == 'kg' ? 'kiloan' : 'satuan' }}" data-waktu="{{ $l->waktu_cuci }}">
                       {{ $l->nama }} ({{ $l->harga_formatted }}/{{ $l->satuan }})
                     </option>
                     @endforeach
@@ -161,6 +175,16 @@
 const layananData = @json($layanan->keyBy('id'));
 let rowIndex = 1;
 
+const opsiWaktuKiloan = [
+  '<option value="">-- Waktu --</option>',
+  ...[...new Set(Object.values(layananData).filter(l => l.satuan === 'kg' && l.waktu_cuci).map(l => l.waktu_cuci))].map(w => `<option value="${w}">${w}</option>`)
+].join('');
+
+const opsiWaktuSatuan = [
+  '<option value="">-- Waktu --</option>',
+  ...[...new Set(Object.values(layananData).filter(l => l.satuan !== 'kg' && l.waktu_cuci).map(l => l.waktu_cuci))].map(w => `<option value="${w}">${w}</option>`)
+].join('');
+
 function formatRupiah(n) {
   return 'Rp ' + new Intl.NumberFormat('id-ID').format(n);
 }
@@ -191,7 +215,62 @@ function calcTotal() {
   document.getElementById('grandTotal').textContent = formatRupiah(total);
 }
 
+function updateLayananOptions(row, fromJenis = false) {
+  const jenis = row.querySelector('.jenis-select').value;
+  const layananSel = row.querySelector('.layanan-select');
+  const waktuSel = row.querySelector('.waktu-select');
+  
+  if (!jenis) {
+    layananSel.disabled = true;
+    waktuSel.disabled = true;
+    waktuSel.innerHTML = '<option value="">-- Waktu --</option>';
+    layananSel.value = "";
+    Array.from(layananSel.options).forEach(opt => {
+      if(opt.value !== "") opt.style.display = 'none';
+    });
+    calcRow(row);
+    return;
+  }
+  
+  waktuSel.disabled = false;
+  layananSel.disabled = false;
+  
+  if (fromJenis) {
+    if (jenis === 'kiloan') {
+      waktuSel.innerHTML = opsiWaktuKiloan;
+    } else {
+      waktuSel.innerHTML = opsiWaktuSatuan;
+    }
+  }
+  
+  const waktu = waktuSel.value;
+  
+  // Filter layanan options
+  let firstValidOption = "";
+  Array.from(layananSel.options).forEach(opt => {
+    if(opt.value === "") return;
+    const matchJenis = opt.dataset.jenis === jenis;
+    const matchWaktu = waktu ? opt.dataset.waktu === waktu : true;
+    
+    if(matchJenis && matchWaktu) {
+      opt.style.display = '';
+      if(!firstValidOption) firstValidOption = opt.value;
+    } else {
+      opt.style.display = 'none';
+    }
+  });
+  
+  // Reset selected layanan if it doesn't match the new filters
+  const currentOpt = layananSel.options[layananSel.selectedIndex];
+  if(currentOpt && currentOpt.style.display === 'none') {
+    layananSel.value = "";
+  }
+  calcRow(row);
+}
+
 function bindRow(row) {
+  row.querySelector('.jenis-select').addEventListener('change', () => updateLayananOptions(row, true));
+  row.querySelector('.waktu-select').addEventListener('change', () => updateLayananOptions(row, false));
   row.querySelector('.layanan-select').addEventListener('change', () => calcRow(row));
   row.querySelector('.jumlah-input').addEventListener('input', () => calcRow(row));
   row.querySelector('.remove-row').addEventListener('click', () => {
@@ -203,6 +282,7 @@ function bindRow(row) {
 
 function updateIndexes() {
   document.querySelectorAll('.item-row').forEach((row, i) => {
+    row.querySelector('.waktu-select').name = `items[${i}][waktu_cuci]`;
     row.querySelector('.layanan-select').name = `items[${i}][layanan_id]`;
     row.querySelector('.jumlah-input').name = `items[${i}][jumlah]`;
     const btn = row.querySelector('.remove-row');
@@ -211,14 +291,21 @@ function updateIndexes() {
 }
 
 // Inisialisasi awal pada baris pertama bawaan
-document.querySelectorAll('.item-row').forEach(bindRow);
+document.querySelectorAll('.item-row').forEach(row => {
+  bindRow(row);
+  updateLayananOptions(row, true);
+});
 
 document.getElementById('addItem').addEventListener('click', () => {
   const tbody = document.getElementById('itemRows');
   const tmpl = tbody.querySelector('.item-row').cloneNode(true);
   
   // Bersihkan data duplikasi pada baris baru hasil kloningan
+  tmpl.querySelector('.jenis-select').selectedIndex = 0;
+  tmpl.querySelector('.waktu-select').innerHTML = '<option value="">-- Waktu --</option>';
+  tmpl.querySelector('.waktu-select').disabled = true;
   tmpl.querySelector('.layanan-select').selectedIndex = 0;
+  tmpl.querySelector('.layanan-select').disabled = true;
   tmpl.querySelector('.jumlah-input').value = 1;
   tmpl.querySelector('.harga-display').textContent = '-';
   tmpl.querySelector('.subtotal-display').textContent = '-';

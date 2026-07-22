@@ -122,6 +122,15 @@
               <a href="{{ route('orders.nota', $order) }}" class="btn btn-sm btn-icon btn-outline-secondary" title="Cetak Nota" target="_blank" style="border-radius: 6px;">
                 <i class="ti ti-printer fs-2"></i>
               </a>
+              @if($order->status !== 'diambil')
+              <form action="{{ route('orders.destroy', $order) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus order ini? Data yang dihapus tidak dapat dikembalikan.');">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-sm btn-icon btn-outline-danger" title="Hapus Order" style="border-radius: 6px;">
+                  <i class="ti ti-trash fs-2"></i>
+                </button>
+              </form>
+              @endif
             </div>
           </td>
         </tr>
