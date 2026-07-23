@@ -46,7 +46,7 @@
                 <i class="ti ti-mail text-secondary fs-2"></i>
               </span>
               <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                     value="{{ old('email') }}" placeholder="email@laundryku.com" required>
+                     value="{{ old('email') }}" placeholder="email@harumlaundry.com" required>
             </div>
             @error('email')
               <div class="invalid-feedback d-block">{{ $message }}</div>

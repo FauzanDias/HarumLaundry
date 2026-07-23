@@ -89,7 +89,7 @@
             <label class="form-check form-switch m-0" style="cursor: pointer;">
               <input type="checkbox" name="is_active" class="form-check-input" value="1" {{ $user->is_active ? 'checked' : '' }} style="cursor: pointer;">
               <span class="form-check-label text-heading" style="cursor: pointer;">Status Pengguna Aktif</span>
-              <span class="form-check-description text-secondary small">Jika dinonaktifkan, user ini tidak akan bisa login ke dalam aplikasi LaundryKu.</span>
+              <span class="form-check-description text-secondary small">Jika dinonaktifkan, user ini tidak akan bisa login ke dalam aplikasi HarumLaundry.</span>
             </label>
           </div>
           

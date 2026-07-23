@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nota {{ $order->kode_order }} — LaundryKu</title>
+  <title>Nota {{ $order->kode_order }} — HarumLaundry</title>
   <style>
     /* Reset & Base Styling khusus untuk printer thermal kasir */
     * { 
@@ -70,7 +70,7 @@
 
   <!-- Header Bisnis dengan Logo SVG Minimalis -->
   <div class="center bold" style="margin-top: 4px; margin-bottom: 6px;">
-    <!-- Logo Mesin Cuci LaundryKu (Sesuai dengan branding aplikasi) -->
+    <!-- Logo Mesin Cuci HarumLaundry (Sesuai dengan branding aplikasi) -->
     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 4px; display: inline-block;">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
@@ -80,8 +80,8 @@
       <path d="M14 6h.01" />
       <path d="M8 14c1.333 -.667 2.667 -.667 4 0c1.333 .667 2.667 .667 4 0" />
     </svg>
-    <h2>LAUNDRYKU</h2>
-    <div style="font-size: 10px; font-weight: normal; letter-spacing: 0.5px;">Sistem Manajemen Laundry Modern</div>
+    <h2>HARUM LAUNDRY</h2>
+    <div style="font-size: 10px; font-weight: normal; letter-spacing: 0.5px;">Nota Transaksi</div>
   </div>
   
   <div class="divider"></div>

@@ -8,8 +8,8 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         Role::insert([
-            ['name' => 'Fauzan Dias Khairi', 'label' => 'Administrator', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'kasir1', 'label' => 'Kasir',         'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Owner Harum Laundry', 'label' => 'Administrator', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'kasir1', 'label' => 'Kasir', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }

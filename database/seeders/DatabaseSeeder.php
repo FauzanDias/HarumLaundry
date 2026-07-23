@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         // Users
         User::create([
             'role_id'   => $admin->id,
-            'name'      => 'Fauzan Dias Khairi',
+            'name'      => 'Owner Harum Laundry',
             'email'     => 'admin@harumlaundry.com',
             'password'  => Hash::make('Admin123'),
             'is_active' => true,
@@ -59,7 +59,11 @@ class DatabaseSeeder extends Seeder
 
         // Sample pelanggan
         $pelanggan = [
-            ['nama' => 'Fauzan Dias',   'telepon' => '085348706418', 'alamat' => 'Jl. Permadi, Sorosutan. Kota Yogyakarta'],
+            ['nama' => 'Fauzan Dias', 'telepon' => '081122223333', 'alamat' => 'Jl. Permadi, Sorosutan. Kota Yogyakarta'],
+            ['nama' => 'Agil Maulana', 'telepon' => '081122224444', 'alamat' => 'Jl. Permadi, Sorosutan. Kota Yogyakarta'],
+            ['nama' => 'Faiz Saddam', 'telepon' => '081122225555', 'alamat' => 'Jl. Permadi, Sorosutan. Kota Yogyakarta'],
+            ['nama' => 'Mega Rukmana', 'telepon' => '081122226666', 'alamat' => 'Jl. Permadi, Sorosutan. Kota Yogyakarta'],
+            ['nama' => 'Den Hanief', 'telepon' => '081122227777', 'alamat' => 'Jl. Permadi, Sorosutan. Kota Yogyakarta'],
         ];
 
         foreach ($pelanggan as $p) {

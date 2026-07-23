@@ -34,7 +34,7 @@
     <div class="about">
 
         <div class="about-image">
-            <img src="{{ asset('images/toko.jpg') }}" alt="Harum Laundry">
+            <img src="{{ asset('images/profil.jpg') }}" alt="Harum Laundry">
         </div>
 
         <div class="about-content">

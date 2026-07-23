@@ -157,8 +157,8 @@
   <table class="header-table">
     <tr>
       <td style="vertical-align: middle;">
-        <div class="brand-title">LAUNDRYKU</div>
-        <div class="brand-sub">Sistem Manajemen Laundry Modern</div>
+        <div class="brand-title">HARUM LAUNDRY</div>
+        <div class="brand-sub">Halaman Manajemen Harum Laundry</div>
       </td>
       <td style="vertical-align: middle; text-align: right;">
         <div class="report-title">LAPORAN BULANAN TRANSAKSI</div>
@@ -185,7 +185,7 @@
       <!-- Waktu Cetak Card -->
       <td class="summary-card">
         <div class="summary-label">Waktu Cetak</div>
-        <div class="summary-value" style="font-size: 13px; padding-top: 3px;">{{ now()->format('d/m/Y H:i') }}</div>
+        <div class="summary-value" style="font-size: 13px; padding-top: 3px;">{{ now('Asia/Makassar')->format('d/m/Y H:i') }} WITA</div>
       </td>
     </tr>
   </table>
@@ -235,8 +235,8 @@
   <!-- ===== FOOTER SIGN-OFF ===== -->
   <table class="footer-table">
     <tr>
-      <td>Dokumen ini dibuat otomatis oleh Sistem Manajemen LaundryKu.</td>
-      <td class="text-right">&copy; {{ date('Y') }} LaundryKu. All rights reserved.</td>
+      <td>Dokumen ini dibuat otomatis oleh Sistem Manajemen Harum Laundry.</td>
+      <td class="text-right">&copy; {{ date('Y') }} Harum Laundry. All rights reserved.</td>
     </tr>
   </table>
 

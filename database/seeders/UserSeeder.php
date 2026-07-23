@@ -10,7 +10,7 @@ class UserSeeder extends Seeder
     {
         User::create([
             'role_id'   => 1,
-            'name'      => 'Fauzan Dias Khairi',
+            'name'      => 'Owner Harum Laundry',
             'email'     => 'admin@harumlaundry.com',
             'password'  => Hash::make('Admin123'),
             'is_active' => true,

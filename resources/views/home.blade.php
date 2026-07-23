@@ -52,25 +52,103 @@
         </p>
 
         <div style="display: flex; gap: 20px;">
-        <a href="{{ url('/hubungi') }}" class="btn">
+        <a href="{{ url('/layanan') }}" class="btn">
             Laundry Sekarang
         </a>    
-        <a href="https://wa.me/6285183754455" class="btn">
+        <a href="{{ url('/hubungi') }}" class="btn">
             Hubungi Kami
         </a>
         </div>
     </div>
 </section>
 
-<section class="hero-slider" style="margin-top: 20px;">
-    <div class="slider-container" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding: 0 20px;">
+<section class="hero-slider" style="margin-top: 20px; width: 100%; overflow: hidden;">
+    <div class="slider-container" id="draggable-slider" style="display: flex; overflow-x: auto; scroll-snap-type: none; gap: 24px; padding: 10px 0; cursor: grab; scrollbar-width: none; -ms-overflow-style: none;">
         @forelse($sliders ?? [] as $slider)
-            <img src="{{ Storage::url($slider->image_path) }}" alt="Slider Laundry" style="scroll-snap-align: start; flex: 0 0 auto; width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <img src="{{ Storage::url($slider->image_path) }}" alt="Slider Laundry" style="flex: 0 0 85vw; width: 85vw; height: 75vh; max-height: 720px; object-fit: cover; border-radius: 8px;">
         @empty
-            <img src="{{ asset('images/unavailable.jpg') }}" alt="Laundry" style="scroll-snap-align: start; flex: 0 0 auto; width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px;">
+            <img src="{{ asset('images/unavailable.jpg') }}" alt="Laundry" style="flex: 0 0 85vw; width: 85vw; height: 75vh; max-height: 720px; object-fit: cover; border-radius: 8px;">
         @endforelse
     </div>
 </section>
+
+<style>
+/* Hide scrollbar for Chrome, Safari and Opera */
+.slider-container::-webkit-scrollbar {
+    display: none;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.getElementById('draggable-slider');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let animationId;
+    let autoScrollSpeed = 1;
+
+    // Clone nodes for seamless infinite looping
+    const children = Array.from(slider.children);
+    children.forEach(child => {
+        let clone = child.cloneNode(true);
+        slider.appendChild(clone);
+    });
+
+    function autoScroll() {
+        if (!isDown) {
+            slider.scrollLeft += autoScrollSpeed;
+            if (slider.scrollLeft >= slider.scrollWidth / 2) {
+                slider.scrollLeft -= slider.scrollWidth / 2;
+            }
+        }
+        animationId = requestAnimationFrame(autoScroll);
+    }
+
+    // Start auto scrolling
+    animationId = requestAnimationFrame(autoScroll);
+
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.style.cursor = 'grabbing';
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+        cancelAnimationFrame(animationId);
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        if(isDown) {
+            isDown = false;
+            slider.style.cursor = 'grab';
+            animationId = requestAnimationFrame(autoScroll);
+        }
+    });
+
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.style.cursor = 'grab';
+        animationId = requestAnimationFrame(autoScroll);
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        slider.scrollLeft = scrollLeft - walk;
+        
+        if (slider.scrollLeft >= slider.scrollWidth / 2) {
+            slider.scrollLeft -= slider.scrollWidth / 2;
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        } else if (slider.scrollLeft <= 0) {
+            slider.scrollLeft += slider.scrollWidth / 2;
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        }
+    });
+});
+</script>
 
 <section class="hero">
         <img src="{{ asset('images/alasan.jpg') }}" alt="Laundry">

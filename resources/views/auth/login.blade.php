@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-  <title>Login — LaundryKu</title>
+  <title>Login — HarumLaundry</title>
   
   <!-- CSS Utama Tabler & Font Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta20/dist/css/tabler.min.css">
@@ -31,9 +31,9 @@
         <div class="avatar avatar-md bg-primary text-white mb-2" style="border-radius: 12px; width: 52px; height: 52px;">
           <i class="ti ti-wash fs-1"></i>
         </div>
-        <span class="fw-bold fs-2 text-dark tracking-tight">LaundryKu</span>
+        <span class="fw-bold fs-2 text-dark tracking-tight">HarumLaundry</span>
       </a>
-      <p class="text-secondary small mt-1">Sistem Manajemen Laundry Modern</p>
+      <p class="text-secondary small mt-1">Halaman Manajemen Harum Laundry</p>
     </div>
 
     <!-- Kotak Login Card -->
