@@ -86,12 +86,7 @@
             <div class="maps-frame">
 
                 <iframe
-                    src="https://www.google.com/maps?q=Harum+Laundry,+ruko+permata+indah,+Jl.+Mulawarman+perumnas+no.+B1,+Karang+Anyar,+Kota+Tarakan&output=embed"
-                    width="100%"
-                    height="280"
-                    style="border:0;"
-                    allowfullscreen
-                    loading="lazy">
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.127190738249!2d117.57605272712374!3d3.318726814770629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32138b72e597c2d7%3A0x36030dc9adb4f263!2sHarum%20Laundry!5e0!3m2!1sid!2sid!4v1784785762462!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
                 </iframe>
 
             </div>
@@ -110,7 +105,7 @@
 
                 </p>
 
-                <a href="#" class="btn">
+                <a href="https://maps.app.goo.gl/y11atKzykayZkyyx5" class="btn">
                     📍 Buka GMaps
                 </a>
 

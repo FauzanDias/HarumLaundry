@@ -48,7 +48,7 @@
 
             <p><a href="https://wa.me/6285183754455">📞 0851-8375-4455</a></p>
 
-            <p><a href="mailto:[EMAIL_ADDRESS]">✉️ [EMAIL_ADDRESS]</a></p>
+            <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=siuwebcorp@gmail.com" target="_blank">✉️ siuwebcorp@gmail.com</a></p>
 
             <p>🕒 08.00 - 22.00 WITA</p>
 

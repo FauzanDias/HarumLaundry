@@ -15,11 +15,12 @@ class CekCucianController extends Controller
     {
         $keyword = $request->invoice;
 
+        // Mengubah dari pencarian 'like' menjadi pencarian '=' (exact match)
         $orders = \App\Models\Order::with('pelanggan')
-            ->where('kode_order', 'like', "%{$keyword}%")
+            ->where('kode_order', $keyword)
             ->orWhereHas('pelanggan', function ($query) use ($keyword) {
-                $query->where('nama', 'like', "%{$keyword}%")
-                      ->orWhere('telepon', 'like', "%{$keyword}%");
+                $query->where('nama', $keyword)
+                      ->orWhere('telepon', $keyword);
             })
             ->orderBy('created_at', 'desc')
             ->get();
