@@ -19,6 +19,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index']);
 Route::view('/profil', 'profil');
 Route::view('/cabang', 'cabang');
+Route::view('/hubungi', 'hubungi');
 Route::view('/layanan', 'layanan');
 
 Route::get('/cek-cucian', [CekCucianController::class, 'index']);

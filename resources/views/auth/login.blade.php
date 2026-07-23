@@ -13,7 +13,7 @@
   <style>
     @import url("https://rsms.me/inter/inter.css");
     :root { 
-      --tblr-primary: #0054a6;
+      --tblr-primary: #0088FF;
       --tblr-font-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif; 
     }
     body { 
@@ -28,8 +28,8 @@
     <!-- Header Logo & Nama Aplikasi -->
     <div class="text-center mb-4">
       <a href="#" class="navbar-brand navbar-brand-autodark d-flex flex-column align-items-center gap-1 text-decoration-none">
-        <div class="avatar avatar-md bg-primary text-white mb-2" style="border-radius: 12px; width: 52px; height: 52px;">
-          <i class="ti ti-wash fs-1"></i>
+        <div class="avatar avatar-md mb-2 overflow-hidden" style="border-radius: 12px; width: 52px; height: 52px;">
+          <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-100 h-100" style="object-fit: cover;">
         </div>
         <span class="fw-bold fs-2 text-dark tracking-tight">HarumLaundry</span>
       </a>

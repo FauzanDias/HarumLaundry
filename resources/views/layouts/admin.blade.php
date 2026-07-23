@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta20/dist/css/tabler.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
   <style>
-    :root { --tblr-primary: #0054a6; }
+    :root { --tblr-primary: #0088FF; }
     .navbar-vertical .nav-link.active { background: rgba(255,255,255,0.08); border-radius: 6px; }
     .navbar-vertical .nav-link:hover { background: rgba(255,255,255,0.04); border-radius: 6px; }
   </style>
