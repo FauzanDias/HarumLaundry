@@ -2,24 +2,72 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use App\Models\Role;
+use App\Models\User;
+use App\Models\Layanan;
+use App\Models\Pelanggan;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Roles
+        $admin  = Role::create(['name' => 'admin',  'label' => 'Administrator']);
+        $kasir  = Role::create(['name' => 'kasir',  'label' => 'Kasir']);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // Users
+        User::create([
+            'role_id'   => $admin->id,
+            'name'      => 'Owner Harum Laundry',
+            'email'     => 'admin@harumlaundry.com',
+            'password'  => Hash::make('Admin123'),
+            'is_active' => true,
         ]);
+
+        User::create([
+            'role_id'   => $kasir->id,
+            'name'      => 'kasir1',
+            'email'     => 'kasir@harumlaundry.com',
+            'password'  => Hash::make('Kasir123'),
+            'is_active' => true,
+        ]);
+
+        // Layanan
+        // Layanan Kiloan
+        $layananKiloan = [
+            ['nama' => 'Cuci Lipat', 'satuan' => 'kg', 'waktu_cuci' => '3 Hari', 'harga' => 7000, 'deskripsi' => 'Layanan Kiloan - Harga Dasar (3 Hari)'],
+            ['nama' => 'Cuci Lipat', 'satuan' => 'kg', 'waktu_cuci' => '2 Hari', 'harga' => 8000, 'deskripsi' => 'Layanan Kiloan - Harga Dasar (2 Hari)'],
+            ['nama' => 'Cuci Lipat', 'satuan' => 'kg', 'waktu_cuci' => '1 Hari', 'harga' => 10000, 'deskripsi' => 'Layanan Kiloan - Harga Dasar (1 Hari)'],
+            ['nama' => 'Cuci Lipat', 'satuan' => 'kg', 'waktu_cuci' => '6 jam', 'harga' => 20000, 'deskripsi' => 'Layanan Kiloan - Harga Dasar (6 Jam)'],
+            ['nama' => 'Cuci Lipat', 'satuan' => 'kg', 'waktu_cuci' => '3 jam', 'harga' => 30000, 'deskripsi' => 'Layanan Kiloan - Harga Dasar (3 Jam)'],
+        ];
+
+        // Layanan Satuan
+        $layananSatuan = [
+            ['nama' => 'Bed Cover No. 1', 'satuan' => 'pcs', 'harga' => 40000, 'deskripsi' => 'Layanan Satuan - Harga Dasar (3 Hari)'],
+            ['nama' => 'Bed Cover No. 2', 'satuan' => 'pcs', 'harga' => 35000, 'deskripsi' => 'Layanan Satuan - Harga Dasar (3 Hari)'],
+            ['nama' => 'Bed Cover No. 3', 'satuan' => 'pcs', 'harga' => 30000, 'deskripsi' => 'Layanan Satuan - Harga Dasar (3 Hari)'],
+        ];
+
+        $layanan = array_merge($layananKiloan, $layananSatuan);
+
+        foreach ($layanan as $l) {
+            Layanan::create(array_merge($l, ['is_active' => true]));
+        }
+
+        // Sample pelanggan
+        $pelanggan = [
+            ['nama' => 'Fauzan Dias', 'telepon' => '081122223333', 'alamat' => 'Jl. Permadi, Sorosutan. Kota Yogyakarta'],
+            ['nama' => 'Agil Maulana', 'telepon' => '081122224444', 'alamat' => 'Jl. Permadi, Sorosutan. Kota Yogyakarta'],
+            ['nama' => 'Faiz Saddam', 'telepon' => '081122225555', 'alamat' => 'Jl. Permadi, Sorosutan. Kota Yogyakarta'],
+            ['nama' => 'Mega Rukmana', 'telepon' => '081122226666', 'alamat' => 'Jl. Permadi, Sorosutan. Kota Yogyakarta'],
+            ['nama' => 'Den Hanief', 'telepon' => '081122227777', 'alamat' => 'Jl. Permadi, Sorosutan. Kota Yogyakarta'],
+        ];
+
+        foreach ($pelanggan as $p) {
+            Pelanggan::create($p);
+        }
     }
 }
